@@ -1,19 +1,19 @@
 // src/background/background.js
 
-chrome.action.onClicked.addListener((tab) => {
-    chrome.scripting.executeScript({
+browser.action.onClicked.addListener((tab) => {
+    browser.scripting.executeScript({
         target: {tabId: tab.id},
         files: ["dist/bundle.js", "src/content/grabWebURL.js", "dist/bundle2.js"],
         allFrames: true
     });
 });
 
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponce) {
+browser.runtime.onMessage.addListener(function(request, sender, sendResponce) {
 
     if (request.action === 'updatePopup') {
 
         //update HTML content!
-        chrome.action.setPopup({ popup: 'src/popup/summify.html'});
+        browser.action.setPopup({ popup: 'src/popup/summify.html'});
 
     }
 

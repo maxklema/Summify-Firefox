@@ -1,12 +1,12 @@
 document.getElementById("summary-type-select").addEventListener("change", changeLanguage)
 
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponce) {
+browser.runtime.onMessage.addListener(function(request, sender, sendResponce) {
     
 
   if (request.action === 'getLanguage'){
 
 
-    chrome.storage.local.get(['Language'], function(result) {
+    browser.storage.local.get(['Language'], function(result) {
 
       if (result['Language'] == ""){
         result = "english"
@@ -68,7 +68,7 @@ function changeLanguage() {
 
     }
 
-    chrome.storage.local.set({ Language: language.value }, function() {
+    browser.storage.local.set({ Language: language.value }, function() {
     });
 
     calculateWordCount("words");
@@ -97,7 +97,7 @@ function changeLanguage() {
 
     }
 
-    chrome.storage.local.set({ Language: language.value }, function() {
+    browser.storage.local.set({ Language: language.value }, function() {
     });
 
     calculateWordCount("palabras");
@@ -124,7 +124,7 @@ function changeLanguage() {
 
     }
 
-    chrome.storage.local.set({ Language: language.value }, function() {
+    browser.storage.local.set({ Language: language.value }, function() {
     });
 
     calculateWordCount("字");
@@ -151,7 +151,7 @@ function changeLanguage() {
 
     }
 
-    chrome.storage.local.set({ Language: language.value }, function() {
+    browser.storage.local.set({ Language: language.value }, function() {
     });
 
     calculateWordCount("शब्द");
@@ -178,14 +178,14 @@ function changeLanguage() {
 
     }
 
-    chrome.storage.local.set({ Language: language.value }, function() {
+    browser.storage.local.set({ Language: language.value }, function() {
     });
 
     calculateWordCount("mots");
 
   } else {
 
-    chrome.storage.local.set({ Language: language.value }, function() {
+    browser.storage.local.set({ Language: language.value }, function() {
     });
 
   }
